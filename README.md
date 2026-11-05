@@ -59,14 +59,18 @@ python -m http.server 8000
 
 ## 部署
 
-已配置 GitHub Actions 自动部署（[`.github/workflows/pages.yml`](.github/workflows/pages.yml)）：
+站点是纯静态页面，直接由 GitHub Pages 从 `main` 分支根目录发布：
 
-- 推送到 `main` 即触发构建，或手动在 **Actions** 页运行 `Deploy to GitHub Pages`；
-- 工作流使用 `actions/configure-pages`、`upload-pages-artifact`、`deploy-pages`，无需额外密钥；
-- 首次运行会自动创建并启用 Pages 站点（`enablement: true`）；
-- 发布地址：<https://jaycrl.github.io/Globle-economic-network/>。
+1. 打开 **Settings → Pages**（<https://github.com/JayCRL/Globle-economic-network/settings/pages>）；
+2. **Source** 选择 `Deploy from a branch`；
+3. **Branch** 选择 `main`，目录选 `/ (root)`，保存；
+4. 等待约 1 分钟，访问 <https://jaycrl.github.io/Globle-economic-network/>。
 
-若想改回传统方式，也可以在 **Settings → Pages** 选择 `Deploy from a branch` → `main` / `/ (root)`。
+之后每次 push 到 `main` 都会自动重新发布，无需构建步骤。仓库根目录的 `.nojekyll`
+用于跳过 Jekyll 处理，原样输出文件。
+
+> 若改回 GitHub Actions 部署（每次推送跑流水线），需要把 Source 换成 `GitHub Actions`
+> 并加回 `pages.yml`；本仓库目前采用更轻的分支发布方式。
 
 ## 技术说明
 
@@ -84,11 +88,11 @@ python -m http.server 8000
 
 ```text
 Globle-economic-network/
-├── index.html                      # 整个站点（页面 + 样式 + 交互）
+├── index.html          # 整个站点（页面 + 样式 + 交互）
 ├── README.md
-├── .github/workflows/pages.yml     # GitHub Pages 自动部署
+├── .nojekyll           # 跳过 Jekyll，原样发布
 └── docs/
-    └── preview.jpg                 # README 预览图
+    └── preview.jpg     # README 预览图
 ```
 
 ## 说明与边界
