@@ -1,11 +1,22 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0b1220" />
-<meta name="description" content="一个关于人类共同治理、国家自治互联、AI辅助生产与全球资源协作网络的未来社会构想。" />
+<meta name="color-scheme" content="dark" />
+<meta name="description" content="共同网络：一个关于人类共同治理、国家自治互联、AI 辅助生产与全球资源协作网络的分层联邦式经济构想。" />
+<meta name="keywords" content="共同网络,全球经济网络,分层联邦,国家自治,AI 协作,全球治理,制度构想" />
+<meta name="author" content="JayCRL" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="共同网络｜分层联邦式全球经济网络" />
+<meta property="og:description" content="生产可以分布式，规则可以共同制定，未来仍由人类共同选择。" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="共同网络｜分层联邦式全球经济网络" />
+<meta name="twitter:description" content="生产可以分布式，规则可以共同制定，未来仍由人类共同选择。" />
 <title>共同网络｜分层联邦式全球经济网络</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230b1220'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='%2372e0d0' stroke-width='4'/%3E%3Cellipse cx='50' cy='50' rx='11' ry='26' fill='none' stroke='%2372e0d0' stroke-width='3' opacity='.65'/%3E%3C/svg%3E" />
+<script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
   --bg:#09111f;--bg2:#0e1a2c;--panel:rgba(18,32,52,.76);--panel2:#13243a;
@@ -15,17 +26,25 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:radial-gradient(ellipse at 75% 5%,rgba(53,111,161,.22),transparent 34%),radial-gradient(ellipse at 8% 28%,rgba(47,158,148,.12),transparent 32%),var(--bg);color:var(--text);font-family:Inter,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65;letter-spacing:.01em}
+body{margin:0;background:radial-gradient(ellipse at 75% 5%,rgba(53,111,161,.22),transparent 34%),radial-gradient(ellipse at 8% 28%,rgba(47,158,148,.12),transparent 32%),var(--bg);color:var(--text);font-family:Inter,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-button{font:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.skip{position:fixed;left:14px;top:-70px;z-index:120;padding:10px 16px;border-radius:10px;background:var(--cyan);color:#071a20;font-size:13px;font-weight:700;transition:top .18s ease}
+.skip:focus{top:14px}
+.progress{position:fixed;left:0;top:0;height:2px;width:0;z-index:110;background:linear-gradient(90deg,var(--cyan),var(--blue));box-shadow:0 0 12px rgba(114,224,208,.55);will-change:width}
 .container{width:min(var(--max),calc(100% - 48px));margin:auto}
 .topbar{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(176,203,230,.1);background:rgba(9,17,31,.78);backdrop-filter:blur(18px)}
 .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.06em}
 .brand-mark{width:31px;height:31px;border:1px solid rgba(114,224,208,.65);border-radius:10px;display:grid;place-items:center;color:var(--cyan);font-size:17px;box-shadow:inset 0 0 18px rgba(114,224,208,.12)}
-.navlinks{display:flex;gap:26px;color:var(--muted);font-size:13px}.navlinks a:hover{color:var(--text)}
+.navlinks{display:flex;gap:26px;color:var(--muted);font-size:13px}
+.navlinks a{position:relative;padding:6px 0;transition:color .2s}
+.navlinks a:hover,.navlinks a[aria-current="true"]{color:var(--text)}
+.navlinks a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.navlinks a:hover:after,.navlinks a[aria-current="true"]:after{transform:scaleX(1)}
 .nav-cta{padding:9px 15px;border:1px solid rgba(114,224,208,.4);border-radius:999px;color:var(--cyan);font-size:12px;transition:.2s}.nav-cta:hover{background:rgba(114,224,208,.1)}
-.hero{position:relative;padding:100px 0 74px;overflow:hidden}
+.hero{position:relative;padding:96px 0 62px;overflow:hidden}
 .hero:after{content:"";position:absolute;width:570px;height:570px;right:-170px;top:-180px;border-radius:50%;border:1px solid rgba(126,183,255,.11);box-shadow:0 0 0 55px rgba(126,183,255,.025),0 0 0 110px rgba(126,183,255,.02);pointer-events:none}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--cyan);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
 .eyebrow:before{content:"";width:23px;height:1px;background:var(--cyan)}
@@ -35,10 +54,11 @@ h1 span{background:linear-gradient(100deg,#eaf5ff 8%,#8be6d9 57%,#8dbbff 100%);b
 .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:999px;font-size:13px;font-weight:650;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--cyan);color:#071a20;box-shadow:0 10px 30px rgba(114,224,208,.16)}.btn-secondary{border:1px solid var(--line);color:var(--soft);background:rgba(255,255,255,.025)}
 .hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:54px;color:#8297b0;font-size:11px;letter-spacing:.08em}.hero-meta b{color:#d8e5f4;font-weight:600;margin-right:5px}
 .section{padding:86px 0}.section-kicker{color:var(--cyan);font-size:11px;letter-spacing:.18em;text-transform:uppercase}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin:12px 0 36px}.section-head h2{font-size:clamp(29px,4vw,45px);line-height:1.2;letter-spacing:-.04em;margin:0;max-width:650px}.section-head p{color:var(--muted);max-width:390px;margin:0;font-size:14px}
+section[id],main[id]{scroll-margin-top:84px}
 .architecture{border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(22,41,64,.82),rgba(11,22,37,.8));padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .architecture:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 25%,rgba(126,183,255,.045),transparent 65%);pointer-events:none}
 .arch-label{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:25px;color:var(--muted);font-size:11px;letter-spacing:.12em}.live-dot{display:inline-flex;align-items:center;gap:7px;color:#9edacf}.live-dot:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
-.arch-grid{display:grid;grid-template-columns:1fr 150px 1fr;gap:13px;align-items:center}.country-stack{display:grid;gap:12px}.country{border:1px solid rgba(126,183,255,.25);background:rgba(126,183,255,.055);border-radius:17px;padding:17px 18px;min-height:126px;position:relative}.country h3{font-size:15px;margin:0 0 5px}.country p{font-size:12px;color:var(--muted);margin:0;max-width:240px}.country-tag{font-size:9px;color:var(--blue);letter-spacing:.13em;margin-bottom:7px}.node-mini{display:flex;gap:5px;margin-top:13px}.node-mini i{height:4px;width:26px;background:rgba(126,183,255,.45);border-radius:5px}.node-mini i:nth-child(2){width:39px;opacity:.65}.node-mini i:nth-child(3){width:17px;opacity:.4}
+.arch-grid{display:grid;grid-template-columns:1fr 32px 172px 32px 1fr;gap:6px;align-items:center}.country-stack{display:grid;gap:12px}.country{border:1px solid rgba(126,183,255,.25);background:rgba(126,183,255,.055);border-radius:17px;padding:17px 18px;min-height:126px;position:relative;transition:transform .25s,border-color .25s}.country:hover{transform:translateY(-3px);border-color:rgba(126,183,255,.45)}.country h3{font-size:15px;margin:0 0 5px}.country p{font-size:12px;color:var(--muted);margin:0;max-width:240px}.country-tag{font-size:9px;color:var(--blue);letter-spacing:.13em;margin-bottom:7px}.node-mini{display:flex;gap:5px;margin-top:13px}.node-mini i{height:4px;width:26px;background:rgba(126,183,255,.45);border-radius:5px}.node-mini i:nth-child(2){width:39px;opacity:.65}.node-mini i:nth-child(3){width:17px;opacity:.4}
 .global-node{border:1px solid rgba(114,224,208,.38);background:radial-gradient(circle at 50% 30%,rgba(114,224,208,.17),rgba(15,43,53,.62));border-radius:22px;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;position:relative;box-shadow:0 0 55px rgba(114,224,208,.07)}.globe{width:76px;height:76px;border:1px solid rgba(114,224,208,.65);border-radius:50%;display:grid;place-items:center;margin-bottom:16px;color:var(--cyan);font-size:30px;position:relative}.globe:before,.globe:after{content:"";position:absolute;inset:9px -1px;border:1px solid rgba(114,224,208,.35);border-radius:50%}.globe:after{inset:-1px 20px}.global-node strong{font-size:14px}.global-node small{color:#9ab9ba;font-size:10px;margin-top:7px;line-height:1.6}.connector{height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);position:relative}.connector:after{content:"↔";position:absolute;left:50%;top:-13px;transform:translateX(-50%);background:#142b38;color:var(--cyan);padding:0 7px;font-size:16px}.arch-bottom{border-top:1px solid var(--line);margin-top:24px;padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px}.infra{display:flex;gap:12px;align-items:center}.infra-icon{width:36px;height:36px;flex:none;border-radius:11px;background:rgba(184,164,255,.12);color:var(--violet);display:grid;place-items:center;font-size:16px}.infra b{display:block;font-size:12px}.infra span{display:block;color:var(--muted);font-size:11px}
 .layer-layout{display:grid;grid-template-columns:310px 1fr;gap:24px}.layer-tabs{display:grid;gap:9px;align-content:start}.layer-tab{width:100%;text-align:left;border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:15px;padding:15px 17px;color:var(--muted);cursor:pointer;transition:.2s}.layer-tab:hover{border-color:rgba(114,224,208,.35);color:var(--text)}.layer-tab.active{border-color:rgba(114,224,208,.55);background:rgba(114,224,208,.09);color:var(--text)}.layer-tab small{display:block;color:var(--cyan);font-size:9px;letter-spacing:.13em;margin-bottom:4px}.layer-tab strong{font-size:14px}.layer-detail{border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(145deg,rgba(20,39,61,.8),rgba(13,25,41,.8));min-height:300px}.detail-top{display:flex;justify-content:space-between;gap:20px;align-items:start}.detail-number{font-size:11px;letter-spacing:.15em;color:var(--cyan)}.layer-detail h3{font-size:27px;letter-spacing:-.035em;margin:7px 0 10px}.layer-detail>p{color:var(--muted);font-size:14px;max-width:680px;margin:0 0 25px}.detail-pill{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:10px;white-space:nowrap}.detail-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.detail-point{background:rgba(255,255,255,.035);border-radius:13px;padding:14px}.detail-point b{display:block;font-size:12px;margin-bottom:5px}.detail-point span{font-size:11px;color:var(--muted);line-height:1.6}
 .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.principle{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:19px;padding:23px;min-height:195px;transition:.25s}.principle:hover{transform:translateY(-4px);border-color:rgba(114,224,208,.35)}.principle-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:rgba(114,224,208,.1);color:var(--cyan);font-size:18px;margin-bottom:17px}.principle h3{font-size:15px;margin:0 0 8px}.principle p{font-size:12px;color:var(--muted);margin:0;line-height:1.8}
@@ -46,49 +66,58 @@ h1 span{background:linear-gradient(100deg,#eaf5ff 8%,#8be6d9 57%,#8dbbff 100%);b
 .tension-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.tension{border:1px solid var(--line);border-radius:18px;padding:22px;background:rgba(255,255,255,.025)}.tension h3{font-size:14px;margin:0 0 8px}.tension p{color:var(--muted);font-size:12px;margin:0;line-height:1.8}.tension .tag{font-size:9px;letter-spacing:.13em;color:var(--gold);margin-bottom:10px;display:block}
 .closing{padding:90px 0 100px;text-align:center}.closing .eyebrow{justify-content:center}.closing h2{font-size:clamp(31px,4.5vw,54px);line-height:1.22;letter-spacing:-.05em;max-width:800px;margin:20px auto}.closing p{max-width:680px;color:var(--muted);font-size:14px;margin:0 auto}.closing .btn{margin-top:27px}
 .footer{border-top:1px solid var(--line);padding:25px 0 34px;color:#73879e;font-size:10px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer b{color:#b9c9dc;font-weight:600}
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+html.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:no-preference){.globe{animation:globeGlow 6.5s ease-in-out infinite}}
+@keyframes globeGlow{50%{box-shadow:inset 0 0 26px rgba(114,224,208,.2),0 0 22px rgba(114,224,208,.14)}}
 @media(max-width:800px){.navlinks{display:none}.hero{padding:75px 0 55px}.arch-grid{grid-template-columns:1fr;gap:12px}.global-node{min-height:190px;grid-row:2}.country-stack{grid-template-columns:1fr 1fr}.connector{display:none}.arch-bottom{grid-template-columns:1fr}.layer-layout{grid-template-columns:1fr}.layer-tabs{grid-template-columns:1fr 1fr}.detail-points{grid-template-columns:1fr}.principles{grid-template-columns:1fr 1fr}.section{padding:65px 0}.section-head{display:block}.section-head p{margin-top:14px}.ai-band{grid-template-columns:1fr}.ai-seal{display:none}}
-@media(max-width:520px){.container{width:min(100% - 32px,var(--max))}.nav{height:62px}.nav-cta{font-size:10px}.brand{font-size:13px}.hero{padding-top:58px}h1{font-size:46px}.hero-meta{gap:12px}.architecture{padding:17px}.country-stack{grid-template-columns:1fr}.country{min-height:unset}.global-node{min-height:170px}.layer-tabs{grid-template-columns:1fr 1fr}.layer-tab{padding:12px}.layer-tab strong{font-size:12px}.layer-detail{padding:20px}.detail-top{display:block}.detail-pill{display:inline-block;margin-top:10px}.principles{grid-template-columns:1fr}.principle{min-height:unset}.tension-grid{grid-template-columns:1fr}.closing{padding:68px 0}.footer{display:block}.footer span{display:block;margin-top:7px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+@media(max-width:520px){.container{width:min(100% - 32px,var(--max))}.nav{height:62px}.nav-cta{font-size:10px}.brand>span>span{display:none}.brand{font-size:13px}.hero{padding-top:58px}h1{font-size:46px}.hero-meta{gap:12px}.architecture{padding:17px}.country-stack{grid-template-columns:1fr}.country{min-height:unset}.global-node{min-height:170px}.layer-tabs{grid-template-columns:1fr 1fr}.layer-tab{padding:12px}.layer-tab strong{font-size:12px}.layer-detail{padding:20px}.layer-detail h3{font-size:23px}.detail-top{display:block}.detail-pill{display:inline-block;margin-top:10px}.principles{grid-template-columns:1fr}.principle{min-height:unset}.tension-grid{grid-template-columns:1fr}.closing{padding:68px 0}.footer{display:block}.footer span{display:block;margin-top:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}html.js .reveal{opacity:1;transform:none}}
+@media print{.topbar,.progress,.skip,.hero-actions,.closing .btn,.nav-cta{display:none!important}body{background:#fff;color:#111}html.js .reveal{opacity:1!important;transform:none!important}.architecture,.layer-detail,.principle,.tension,.ai-band,.country{background:#fff!important;box-shadow:none!important;border-color:#d5d5d5!important}.hero-copy,.section-head p,.principle p,.tension p,.layer-detail>p,.ai-band p,.footer{color:#333}.section{padding:28px 0}}
 </style>
 </head>
 <body>
+<a class="skip" href="#content">跳到主要内容</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 <header class="topbar">
   <div class="container nav">
-    <a class="brand" href="#top" aria-label="共同网络首页"><span class="brand-mark">⌘</span><span>共同网络 <span style="color:#7890aa;font-weight:400">/ COMMONS NETWORK</span></span></a>
+    <a class="brand" href="#top" aria-label="共同网络首页"><span class="brand-mark" aria-hidden="true">⌘</span><span>共同网络 <span style="color:#7890aa;font-weight:400">/ COMMONS NETWORK</span></span></a>
     <nav class="navlinks" aria-label="主导航"><a href="#architecture">总体架构</a><a href="#layers">四层结构</a><a href="#principles">核心原则</a><a href="#governance">人类治理</a></nav>
     <a class="nav-cta" href="#vision">探索构想 ↗</a>
   </div>
 </header>
-<main id="top">
-<section class="hero">
+<main id="content">
+<section class="hero" id="top">
   <div class="container">
     <div class="eyebrow">A possible architecture for tomorrow</div>
     <h1>让生产自由连接，<br><span>让人类共同治理。</span></h1>
-    <p class="hero-copy">当 AI 将个人的生产能力不断放大，未来的经济组织或许不再只能依赖庞大的层级企业。个人与 AI 可以成为灵活的生产单元，国家保留自治，全球通过共同协议连接资源与能力，并由人类建立更高层级的公共治理。</p>
-    <div class="hero-actions"><a class="btn btn-primary" href="#architecture">查看系统架构 <span>↓</span></a><a class="btn btn-secondary" href="#governance">为什么治理仍属于人类 <span>↗</span></a></div>
+    <p class="hero-copy">当 AI 把个人的生产能力不断放大，未来的经济组织或许不再只能依赖庞大的层级企业。个人与 AI 可以成为灵活的生产单元，国家保留自治，全球通过共同协议连接资源与能力，并由人类建立更高层级的公共治理。</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="#architecture">查看系统架构 <span aria-hidden="true">↓</span></a><a class="btn btn-secondary" href="#governance">为什么治理仍属于人类 <span aria-hidden="true">↗</span></a></div>
     <div class="hero-meta"><span><b>01</b> 分布式生产</span><span><b>02</b> 分层自治</span><span><b>03</b> 全球协作</span><span><b>04</b> 人类治理</span></div>
   </div>
 </section>
 <section class="section" id="architecture">
   <div class="container">
     <div class="section-kicker">01 / System architecture</div>
-    <div class="section-head"><h2>不是把世界变成一个组织，<br>而是让不同组织互联。</h2><p>借鉴互联网的自治网络与共同协议：节点保留内部规则，同时拥有跨边界协作的能力。</p></div>
-    <div class="architecture">
+    <div class="section-head reveal"><h2>不是把世界变成一个组织，<br>而是让不同组织互联。</h2><p>借鉴互联网的自治网络与共同协议：节点保留内部规则，同时拥有跨边界协作的能力。</p></div>
+    <div class="architecture reveal">
       <div class="arch-label"><span>FEDERATED ECONOMIC NETWORK / CONCEPT MODEL</span><span class="live-dot">自治节点 · 协议互联</span></div>
       <div class="arch-grid">
         <div class="country-stack">
-          <article class="country"><div class="country-tag">AUTONOMOUS NODE · A</div><h3>国家经济网络 A</h3><p>组织本国生产、公共服务、产业政策与社会保障。</p><div class="node-mini"><i></i><i></i><i></i></div></article>
-          <article class="country"><div class="country-tag">AUTONOMOUS NODE · B</div><h3>国家经济网络 B</h3><p>根据自身发展阶段制定规则，并参与跨国合作。</p><div class="node-mini"><i></i><i></i><i></i></div></article>
+          <article class="country"><div class="country-tag">AUTONOMOUS NODE · A</div><h3>国家经济网络 A</h3><p>组织本国生产、公共服务、产业政策与社会保障。</p><div class="node-mini" aria-hidden="true"><i></i><i></i><i></i></div></article>
+          <article class="country"><div class="country-tag">AUTONOMOUS NODE · B</div><h3>国家经济网络 B</h3><p>根据自身发展阶段制定规则，并参与跨国合作。</p><div class="node-mini" aria-hidden="true"><i></i><i></i><i></i></div></article>
         </div>
-        <div class="global-node"><div class="globe">◎</div><strong>全球互联与协调层</strong><small>共同协议<br>跨境交换 · 公共资源 · 风险协调</small></div>
+        <div class="connector" aria-hidden="true"></div>
+        <div class="global-node"><div class="globe" aria-hidden="true">◎</div><strong>全球互联与协调层</strong><small>共同协议<br>跨境交换 · 公共资源 · 风险协调</small></div>
+        <div class="connector" aria-hidden="true"></div>
         <div class="country-stack">
-          <article class="country"><div class="country-tag">AUTONOMOUS NODE · C</div><h3>国家经济网络 C</h3><p>保留政治与经济自治，按共同规则连接全球市场。</p><div class="node-mini"><i></i><i></i><i></i></div></article>
-          <article class="country"><div class="country-tag">AUTONOMOUS NODE · …</div><h3>其他国家与地区</h3><p>开放、分层、可演进的接入方式，不设永久等级。</p><div class="node-mini"><i></i><i></i><i></i></div></article>
+          <article class="country"><div class="country-tag">AUTONOMOUS NODE · C</div><h3>国家经济网络 C</h3><p>保留政治与经济自治，按共同规则连接全球市场。</p><div class="node-mini" aria-hidden="true"><i></i><i></i><i></i></div></article>
+          <article class="country"><div class="country-tag">AUTONOMOUS NODE · …</div><h3>其他国家与地区</h3><p>开放、分层、可演进的接入方式，不设永久等级。</p><div class="node-mini" aria-hidden="true"><i></i><i></i><i></i></div></article>
         </div>
       </div>
       <div class="arch-bottom">
-        <div class="infra"><div class="infra-icon">⌘</div><div><b>全球公共协议</b><span>身份、互操作、交易、结算、数据授权与争议处理</span></div></div>
-        <div class="infra"><div class="infra-icon">✳</div><div><b>AI 公共服务基础设施</b><span>跨层提供分析、翻译、调度、模拟与审计支持</span></div></div>
+        <div class="infra"><div class="infra-icon" aria-hidden="true">⌘</div><div><b>全球公共协议</b><span>身份、互操作、交易、结算、数据授权与争议处理</span></div></div>
+        <div class="infra"><div class="infra-icon" aria-hidden="true">✳</div><div><b>AI 公共服务基础设施</b><span>跨层提供分析、翻译、调度、模拟与审计支持</span></div></div>
       </div>
     </div>
   </div>
@@ -96,15 +125,15 @@ h1 span{background:linear-gradient(100deg,#eaf5ff 8%,#8be6d9 57%,#8dbbff 100%);b
 <section class="section" id="layers" style="padding-top:35px">
   <div class="container">
     <div class="section-kicker">02 / Four layers</div>
-    <div class="section-head"><h2>四个层级，<br>各自承担不同责任。</h2><p>全球层不包办国家事务，国家层也不垄断全部生产。治理权限与生产能力可以采用不同的组织边界。</p></div>
-    <div class="layer-layout">
-      <div class="layer-tabs" role="tablist" aria-label="经济网络层级">
-        <button class="layer-tab active" role="tab" aria-selected="true" data-layer="0"><small>LAYER 01</small><strong>个人与生产单元</strong></button>
-        <button class="layer-tab" role="tab" aria-selected="false" data-layer="1"><small>LAYER 02</small><strong>国家经济网络</strong></button>
-        <button class="layer-tab" role="tab" aria-selected="false" data-layer="2"><small>LAYER 03</small><strong>全球互联网络</strong></button>
-        <button class="layer-tab" role="tab" aria-selected="false" data-layer="3"><small>LAYER 04</small><strong>全球共同治理</strong></button>
+    <div class="section-head reveal"><h2>四个层级，<br>各自承担不同责任。</h2><p>全球层不包办国家事务，国家层也不垄断全部生产。治理权限与生产能力可以采用不同的组织边界。</p></div>
+    <div class="layer-layout reveal">
+      <div class="layer-tabs" role="tablist" aria-label="经济网络层级" aria-orientation="vertical">
+        <button class="layer-tab active" id="tab-0" role="tab" aria-selected="true" aria-controls="layer-panel" tabindex="0" data-layer="0"><small>LAYER 01</small><strong>个人与生产单元</strong></button>
+        <button class="layer-tab" id="tab-1" role="tab" aria-selected="false" aria-controls="layer-panel" tabindex="-1" data-layer="1"><small>LAYER 02</small><strong>国家经济网络</strong></button>
+        <button class="layer-tab" id="tab-2" role="tab" aria-selected="false" aria-controls="layer-panel" tabindex="-1" data-layer="2"><small>LAYER 03</small><strong>全球互联网络</strong></button>
+        <button class="layer-tab" id="tab-3" role="tab" aria-selected="false" aria-controls="layer-panel" tabindex="-1" data-layer="3"><small>LAYER 04</small><strong>全球共同治理</strong></button>
       </div>
-      <article class="layer-detail" aria-live="polite">
+      <article class="layer-detail" id="layer-panel" role="tabpanel" aria-labelledby="tab-0" tabindex="0" aria-live="polite">
         <div class="detail-top"><div><div class="detail-number" id="detail-number">LAYER 01 / PRODUCTION</div><h3 id="detail-title">个人 + AI：灵活的生产单元</h3></div><span class="detail-pill" id="detail-pill">分布式执行</span></div>
         <p id="detail-description">个人不必把所有能力都装进一个公司。AI 作为协作助手，帮助个人发现需求、组织专业能力、调用模型与设备，并与其他生产单元动态协作。</p>
         <div class="detail-points" id="detail-points">
@@ -119,25 +148,24 @@ h1 span{background:linear-gradient(100deg,#eaf5ff 8%,#8be6d9 57%,#8dbbff 100%);b
 <section class="section" id="principles">
   <div class="container">
     <div class="section-kicker">03 / Design principles</div>
-    <div class="section-head"><h2>系统的价值，<br>取决于它遵循什么原则。</h2><p>技术互联只是基础。开放程度、权利边界和收益分配，决定网络最终服务于谁。</p></div>
-    <div class="principles">
-      <article class="principle"><div class="principle-icon">⌘</div><h3>开放互联，而非平台垄断</h3><p>以公共协议连接不同服务，支持互操作、数据迁移、多供应商与用户选择，避免单一平台控制入口。</p></article>
-      <article class="principle"><div class="principle-icon">◇</div><h3>自治协作，而非单一中心</h3><p>国家和地方保留适当自治权；只有跨边界问题，才交由更高层级协调。</p></article>
-      <article class="principle"><div class="principle-icon">⇄</div><h3>共享调用，也讨论所有权</h3><p>资源可调用不等于资源共同所有。必须明确使用权、收益权、控制权和责任归属。</p></article>
-      <article class="principle"><div class="principle-icon">◎</div><h3>发展可达，而非永久分级</h3><p>不同经济体可以采用不同接入阶段，但规则应支持能力建设与向上迁移，避免固化不平等。</p></article>
-      <article class="principle"><div class="principle-icon">⚖</div><h3>效率与公平共同衡量</h3><p>不只比较成本和产出，也衡量基本保障、劳动者议价能力、区域差距与生态代价。</p></article>
-      <article class="principle"><div class="principle-icon">⌕</div><h3>权力可审计、可问责</h3><p>规则制定、资源分配和算法辅助决策应当可解释、可审查，并提供申诉与纠错渠道。</p></article>
+    <div class="section-head reveal"><h2>系统的价值，<br>取决于它遵循什么原则。</h2><p>技术互联只是基础。开放程度、权利边界和收益分配，决定网络最终服务于谁。</p></div>
+    <div class="principles reveal">
+      <article class="principle"><div class="principle-icon" aria-hidden="true">⌘</div><h3>开放互联，而非平台垄断</h3><p>以公共协议连接不同服务，支持互操作、数据迁移、多供应商与用户选择，避免单一平台控制入口。</p></article>
+      <article class="principle"><div class="principle-icon" aria-hidden="true">◇</div><h3>自治协作，而非单一中心</h3><p>国家和地方保留适当自治权；只有跨边界问题，才交由更高层级协调。</p></article>
+      <article class="principle"><div class="principle-icon" aria-hidden="true">⇄</div><h3>共享调用，也讨论所有权</h3><p>资源可调用不等于资源共同所有。必须明确使用权、收益权、控制权和责任归属。</p></article>
+      <article class="principle"><div class="principle-icon" aria-hidden="true">◎</div><h3>发展可达，而非永久分级</h3><p>不同经济体可以采用不同接入阶段，但规则应支持能力建设与向上迁移，避免固化不平等。</p></article>
+      <article class="principle"><div class="principle-icon" aria-hidden="true">⚖</div><h3>效率与公平共同衡量</h3><p>不只比较成本和产出，也衡量基本保障、劳动者议价能力、区域差距与生态代价。</p></article>
+      <article class="principle"><div class="principle-icon" aria-hidden="true">⌕</div><h3>权力可审计、可问责</h3><p>规则制定、资源分配和算法辅助决策应当可解释、可审查，并提供申诉与纠错渠道。</p></article>
     </div>
   </div>
 </section>
 <section class="section" id="governance" style="padding-top:30px">
   <div class="container">
-    <div class="ai-band">
+    <div class="ai-band reveal">
       <div><div class="section-kicker" style="color:var(--violet)">04 / Human governance</div><h2>AI 参与治理的工作，<br>但治理权属于人。</h2><p>AI 可以处理海量信息、预测政策后果、翻译不同语言、辅助资源调度与检查执行情况。但社会目标、价值取舍、权利边界和公共规则，必须由人通过正当制度作出决定。</p></div>
-      <div class="ai-seal">人<span style="font-size:15px">+</span>AI</div>
+      <div class="ai-seal" aria-hidden="true">人<span style="font-size:15px">+</span>AI</div>
     </div>
-    <div style="height:20px"></div>
-    <div class="tension-grid">
+    <div class="tension-grid reveal" style="margin-top:20px">
       <article class="tension"><span class="tag">GOVERNANCE MODEL A</span><h3>国家自治 + 全球协调</h3><p>国家保留内部制度选择权；全球机构只处理气候、跨国基础设施、共同风险、全球公共资源等需要共同决策的问题。</p></article>
       <article class="tension"><span class="tag">INSTITUTIONAL SAFEGUARD</span><h3>权力分立 + 双重代表</h3><p>可以探索人民代表与国家代表共同参与决策，并设置独立司法、审计、申诉和透明机制，防止全球机构无限扩权。</p></article>
     </div>
@@ -146,8 +174,8 @@ h1 span{background:linear-gradient(100deg,#eaf5ff 8%,#8be6d9 57%,#8dbbff 100%);b
 <section class="section" id="vision">
   <div class="container">
     <div class="section-kicker">05 / The open questions</div>
-    <div class="section-head"><h2>它不是一个技术答案，<br>而是一组需要共同回答的问题。</h2><p>网络能够连接生产能力，却不能自动产生公平。制度设计必须正面处理权力、稀缺与利益冲突。</p></div>
-    <div class="tension-grid">
+    <div class="section-head reveal"><h2>它不是一个技术答案，<br>而是一组需要共同回答的问题。</h2><p>网络能够连接生产能力，却不能自动产生公平。制度设计必须正面处理权力、稀缺与利益冲突。</p></div>
+    <div class="tension-grid reveal">
       <article class="tension"><span class="tag">OWNERSHIP</span><h3>全球基础设施由谁拥有？</h3><p>算力、模型、能源、机器人和数据基础设施，应该由公共机构、企业、合作社还是多种主体共同提供？</p></article>
       <article class="tension"><span class="tag">DISTRIBUTION</span><h3>自动化收益如何分享？</h3><p>当生产越来越少依赖传统劳动，收入、公共服务和社会保障应如何连接到生产率增长？</p></article>
       <article class="tension"><span class="tag">SOVEREIGNTY</span><h3>全球规则如何获得正当性？</h3><p>如何让人口、国家规模和发展阶段不同的参与者，都拥有实质的表达、协商与纠错权？</p></article>
@@ -173,8 +201,70 @@ const layers=[
  {n:'LAYER 04 / COMMON GOVERNANCE',t:'全球共同治理：处理共同问题',pill:'人类决策',d:'当问题超越单个国家的能力或边界，就需要更高层级的共同治理。它应拥有清晰授权、代表性、问责和退出或纠错机制，而不是无限扩权。',p:[['共同议程','气候、全球公共资源、跨国基础设施与风险。'],['双重代表','兼顾全球公民与国家作为政治共同体的声音。'],['制衡问责','独立审计、司法审查、透明与公众申诉。']]}
 ];
 const tabs=[...document.querySelectorAll('.layer-tab')];
-function showLayer(i){const x=layers[i];document.getElementById('detail-number').textContent=x.n;document.getElementById('detail-title').textContent=x.t;document.getElementById('detail-pill').textContent=x.pill;document.getElementById('detail-description').textContent=x.d;document.getElementById('detail-points').innerHTML=x.p.map(q=>`<div class="detail-point"><b>${q[0]}</b><span>${q[1]}</span></div>`).join('');tabs.forEach((b,j)=>{b.classList.toggle('active',i===j);b.setAttribute('aria-selected',i===j?'true':'false')})}
-tabs.forEach((b)=>b.addEventListener('click',()=>showLayer(Number(b.dataset.layer))));
+const panel=document.getElementById('layer-panel');
+function showLayer(i,focus){
+  const x=layers[i];
+  document.getElementById('detail-number').textContent=x.n;
+  document.getElementById('detail-title').textContent=x.t;
+  document.getElementById('detail-pill').textContent=x.pill;
+  document.getElementById('detail-description').textContent=x.d;
+  document.getElementById('detail-points').innerHTML=x.p.map(q=>`<div class="detail-point"><b>${q[0]}</b><span>${q[1]}</span></div>`).join('');
+  panel.setAttribute('aria-labelledby','tab-'+i);
+  tabs.forEach((b,j)=>{
+    const on=i===j;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-selected',on?'true':'false');
+    b.tabIndex=on?0:-1;
+  });
+  if(focus) tabs[i].focus();
+}
+tabs.forEach((b,i)=>{
+  b.addEventListener('click',()=>showLayer(i));
+  b.addEventListener('keydown',(e)=>{
+    const k=e.key;
+    let next=null;
+    if(k==='ArrowDown'||k==='ArrowRight') next=(i+1)%tabs.length;
+    else if(k==='ArrowUp'||k==='ArrowLeft') next=(i-1+tabs.length)%tabs.length;
+    else if(k==='Home') next=0;
+    else if(k==='End') next=tabs.length-1;
+    if(next!==null){e.preventDefault();showLayer(next,true);}
+  });
+});
+
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reveals=[...document.querySelectorAll('.reveal')];
+if(!reduce&&'IntersectionObserver' in window){
+  reveals.forEach(el=>{
+    const sibs=[...el.parentElement.querySelectorAll('.reveal')];
+    el.style.transitionDelay=(Math.min(sibs.indexOf(el),4)*70)+'ms';
+  });
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{rootMargin:'0px 0px -6% 0px',threshold:.08});
+  reveals.forEach(el=>io.observe(el));
+}else{
+  reveals.forEach(el=>el.classList.add('in'));
+}
+
+const progress=document.getElementById('progress');
+const links=[...document.querySelectorAll('.navlinks a')];
+const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+let ticking=false;
+function onScroll(){
+  const h=document.documentElement;
+  const max=h.scrollHeight-h.clientHeight;
+  progress.style.width=(max>0?Math.min(h.scrollTop/max*100,100):0)+'%';
+  const y=h.scrollTop+120;
+  let active=-1;
+  targets.forEach((s,i)=>{if(s.offsetTop<=y) active=i;});
+  links.forEach((a,i)=>a.setAttribute('aria-current',i===active?'true':'false'));
+  ticking=false;
+}
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll);}},{passive:true});
+onScroll();
 </script>
 </body>
 </html>
+
