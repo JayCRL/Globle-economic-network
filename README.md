@@ -2,6 +2,8 @@
 
 > 生产可以分布式，规则可以共同制定，未来仍由人类共同选择。
 
+**在线访问：[jaycrl.github.io/Globle-economic-network](https://jaycrl.github.io/Globle-economic-network/)**
+
 ![页面预览](docs/preview.jpg)
 
 一个单文件的可视化网页，用一页讲清楚一套关于 **分层联邦式全球经济网络** 的制度构想：
@@ -48,24 +50,23 @@ AI 放大个人生产能力之后，经济组织不必只剩「庞大的层级�
 
 ```bash
 # 方式一：双击
-global-economic-network.html
+index.html
 
 # 方式二：起一个本地静态服务（推荐，便于测试相对路径与分享）
 python -m http.server 8000
-# 然后访问 http://localhost:8000/global-economic-network.html
+# 然后访问 http://localhost:8000/
 ```
 
-## 发布到 GitHub Pages（可选）
+## 部署
 
-GitHub Pages 需要一个 `index.html` 作为入口。若希望直接在线访问，可以这样做：
+已配置 GitHub Actions 自动部署（[`.github/workflows/pages.yml`](.github/workflows/pages.yml)）：
 
-```bash
-# 把页面改名为入口文件，然后推送
-git mv global-economic-network.html index.html
-```
+- 推送到 `main` 即触发构建，或手动在 **Actions** 页运行 `Deploy to GitHub Pages`；
+- 工作流使用 `actions/configure-pages`、`upload-pages-artifact`、`deploy-pages`，无需额外密钥；
+- 首次运行会自动创建并启用 Pages 站点（`enablement: true`）；
+- 发布地址：<https://jaycrl.github.io/Globle-economic-network/>。
 
-然后在仓库 **Settings → Pages** 中选择 `main` 分支的根目录（`/`）并保存，稍后访问
-`https://jaycrl.github.io/Globle-economic-network/`。
+若想改回传统方式，也可以在 **Settings → Pages** 选择 `Deploy from a branch` → `main` / `/ (root)`。
 
 ## 技术说明
 
@@ -83,10 +84,11 @@ git mv global-economic-network.html index.html
 
 ```text
 Globle-economic-network/
+├── index.html                      # 整个站点（页面 + 样式 + 交互）
 ├── README.md
-├── global-economic-network.html   # 整个站点（页面 + 样式 + 交互）
+├── .github/workflows/pages.yml     # GitHub Pages 自动部署
 └── docs/
-    └── preview.jpg                # README 预览图
+    └── preview.jpg                 # README 预览图
 ```
 
 ## 说明与边界
